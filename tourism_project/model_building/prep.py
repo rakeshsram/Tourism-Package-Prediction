@@ -84,10 +84,10 @@ X = pd.get_dummies(X, drop_first=True)
 # splitting in training and test set
 X_train, X_test, y_train, y_test = train_test_split( X, Y, test_size = 0.3, random_state = 42, stratify=Y)
 
-X_train.to_csv("Xtrain.csv",index=False)
-X_test.to_csv("Xtest.csv",index=False)
-y_train.to_csv("ytrain.csv",index=False)
-y_test.to_csv("ytest.csv",index=False)
+X_train.to_csv("X_train.csv",index=False)
+X_test.to_csv("X_test.csv",index=False)
+y_train.to_csv("y_train.csv",index=False)
+y_test.to_csv("y_test.csv",index=False)
 
 files = ["X_train.csv","X_test.csv","y_train.csv","y_test.csv"]
 
