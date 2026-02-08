@@ -1,7 +1,7 @@
-from huggingface_hub.utils import RepositoryNotFoundError, HfHubHTTPError
-from huggingface_hub import HfApi, create_repo
 import os
 
+from huggingface_hub import HfApi, create_repo
+from huggingface_hub.utils import RepositoryNotFoundError
 
 repo_id = "rakesh1715/Tourism-Package-Prediction"
 repo_type = "dataset"
@@ -19,7 +19,7 @@ except RepositoryNotFoundError:
     print(f"Space '{repo_id}' created.")
 
 api.upload_folder(
-    folder_path="tourism_project/data",
-    repo_id=repo_id,
-    repo_type=repo_type,
+        folder_path="tourism_project/data",
+        repo_id=repo_id,
+        repo_type=repo_type,
 )
