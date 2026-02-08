@@ -36,8 +36,8 @@ Observations from data interpretation:
 data.drop(
         [
                 "Unnamed: 0",
-                "CustomerID"
-                "DurationOfPitch"
+                "CustomerID",
+                "DurationOfPitch",
                 "NumberOfFollowups",
                 "ProductPitched",
                 "PitchSatisfactionScore",
