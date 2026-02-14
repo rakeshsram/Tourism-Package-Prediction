@@ -52,7 +52,12 @@ productPitched = st.selectbox("ProductPitched", ["Basic", "Standard", 'Deluxe', 
 
 # --- Interaction details ---
 st.subheader("Interaction Details")
-pitchSatisfactionScore = st.number_input("Pitch Satisfaction Score", min_value=1, max_value=5, value=3)
+pitchSatisfactionScore = st.slider(
+    "Pitch Satisfaction Score",
+    min_value=1,
+    max_value=5,
+    value=3,
+)
 durationOfPitch = st.number_input("Duration Of Pitch", min_value=0, max_value=240, value=25)
 numberOfFollowups = st.number_input("Number Of Follow-ups", min_value=0, value=2)
 
