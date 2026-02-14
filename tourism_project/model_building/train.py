@@ -72,7 +72,7 @@ preprocessor = make_column_transformer(
                 ordinal_cols
         ),
         (
-                OneHotEncoder(handle_unknown="ignore", sparse=False),
+                OneHotEncoder(handle_unknown="ignore"),
                 nominal_cols
         ),
         (
