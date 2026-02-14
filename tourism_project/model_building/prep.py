@@ -37,10 +37,10 @@ data.drop(
         [
                 "Unnamed: 0",
                 "CustomerID",
-                # "DurationOfPitch",
-                # "NumberOfFollowups",
-                # "ProductPitched",
-                # "PitchSatisfactionScore",
+                "DurationOfPitch",
+                "NumberOfFollowups",
+                "ProductPitched",
+                "PitchSatisfactionScore",
         ],
         axis=1,
         inplace=True,
@@ -72,39 +72,9 @@ data["PreferredPropertyStar"] = data["PreferredPropertyStar"].astype("float")
 data["NumberOfChildrenVisiting"] = data["NumberOfChildrenVisiting"].astype("int64")
 data["NumberOfTrips"] = data["NumberOfTrips"].astype("int64")
 
-# Modify the ordinal values for columns: ProductPitched, Designation to Label Encoding
-# product_order = {
-#     'Basic': 1,
-#     'Standard': 2,
-#     'Deluxe': 3,
-#     'Super Deluxe': 4,
-#     'King': 5
-# }
-
-# # Replace the original column with encoded values
-# data['ProductPitched'] = data['ProductPitched'].map(product_order)
-
-# Encoding and getting dummies
-
-# Encoding for ordinal fields
-# ordinal_fields = [
-#     "CityTier",
-#     "PreferredPropertyStar",
-#     "PitchSatisfactionScore",
-#     "Designation"
-# ]
-
-# # Modify the nominal values for columns: Occupation, Gender, MaritalStatus, TypeofContact to One-Hot Encoding
-# nominal_cols = ['TypeofContact', 'Occupation', 'Gender', 'MaritalStatus']
-# data = pd.get_dummies(data, columns=nominal_cols, drop_first=True)
-# print("One-Hot Encoding complete. Original nominal columns have been replaced by new binary columns.")
-
 # Split the data into train and test sets
 Y = data["ProdTaken"]
 X = data.drop("ProdTaken", axis=1)
-
-# # creating dummy variables
-# X = pd.get_dummies(X, drop_first=True)
 
 # splitting in training and test set
 X_train, X_test, y_train, y_test = train_test_split(X, Y, test_size=0.3, random_state=42, stratify=Y)

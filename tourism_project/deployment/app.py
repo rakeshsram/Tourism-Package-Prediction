@@ -84,8 +84,19 @@ input_data = pd.DataFrame([{
 
 }])
 
-if st.button("Predict Tourism Package Taken"):
+if st.button("Predict"):
     prediction = model.predict(input_data)[0]
-    result = "Package Taken" if prediction == 1 else "Package Not Taken"
-    st.subheader("Prediction Result:")
-    st.success(f"The model predicts: **{result}**")
+    probability = None
+    try:
+        proba = model.predict_proba(input_data)[0, 1]
+    except Exception as err:
+        st.error("Error in checking the probability of purchase")
+
+    st.subheader("Prediction Result")
+    if prediction == 1:
+        st.success("The model predicts that the customer is **LIKELY** to purchase the package.")
+    else:
+        st.info("The model predicts that the customer is **UNLIKELY** to purchase the package.")
+
+    if probability is not None:
+        st.write(f"Estimated probability of purchase: **{probability:.2%}**")
