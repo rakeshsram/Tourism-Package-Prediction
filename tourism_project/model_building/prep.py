@@ -52,7 +52,7 @@ data.drop_duplicates(inplace=True)
 # Data transformation for gender as "Female" is interpreted as "FE male" in some records
 data["Gender"] = data["Gender"].str.replace("Fe Male", "Female")
 
-# Merge MaritalStatus of UnMarried and Single 
+# Merge MaritalStatus of UnMarried and Single
 data["MaritalStatus"] = data["MaritalStatus"].str.replace("Unmarried", "Single")
 
 # Convert to categorical types
@@ -88,9 +88,9 @@ data["NumberOfTrips"] = data["NumberOfTrips"].astype("int64")
 
 # Encoding for ordinal fields
 # ordinal_fields = [
-#     "CityTier",  
-#     "PreferredPropertyStar",  
-#     "PitchSatisfactionScore",  
+#     "CityTier",
+#     "PreferredPropertyStar",
+#     "PitchSatisfactionScore",
 #     "Designation"
 # ]
 

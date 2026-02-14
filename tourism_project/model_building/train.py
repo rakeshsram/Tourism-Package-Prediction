@@ -30,8 +30,8 @@ ytest = pd.read_csv(ytest_path)
 ordinal_cols = [
         "CityTier",
         "PreferredPropertyStar",
-        # "PitchSatisfactionScore",
-        # "ProductPitched",
+        "PitchSatisfactionScore",
+        "ProductPitched",
         "Designation"
 ]
 
@@ -44,9 +44,9 @@ nominal_cols = [
 
 numeric_cols = [
         "Age",
-        # "DurationOfPitch",
+        "DurationOfPitch",
         "NumberOfPersonVisiting",
-        # "NumberOfFollowups",
+        "NumberOfFollowups",
         "NumberOfTrips",
         "NumberOfChildrenVisiting",
         "MonthlyIncome"
@@ -62,8 +62,8 @@ preprocessor = make_column_transformer(
                         categories=[
                                 ["1", "2", "3"],  # CityTier
                                 [1, 2, 3, 4, 5],  # PreferredPropertyStar
-                                # [1, 2, 3, 4, 5],    # PitchSatisfactionScore,
-                                # ["Basic", "Standard", "Deluxe", "Super Deluxe", "King"],    # ProductPitched
+                                [1, 2, 3, 4, 5],    # PitchSatisfactionScore,
+                                ["Basic", "Standard", "Deluxe", "Super Deluxe", "King"],    # ProductPitched
                                 ["Executive", "Manager", "Senior Manager", "AVP", "VP"]  # Designation
                         ],
                         handle_unknown="use_encoded_value",
@@ -72,7 +72,7 @@ preprocessor = make_column_transformer(
                 ordinal_cols
         ),
         (
-                OneHotEncoder(handle_unknown="ignore"),
+                OneHotEncoder(handle_unknown="ignore", sparse=False),
                 nominal_cols
         ),
         (
